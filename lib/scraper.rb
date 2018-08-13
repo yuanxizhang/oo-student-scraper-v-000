@@ -61,7 +61,7 @@ class Scraper
   def self.get_host_without_www(url)
     uri = URI.parse(url)
     uri = URI.parse("http://#{url}") if uri.scheme.nil?
-    host = uri.host.split('.').first(2)
+    host = uri.host.downcase.split('.').first(2)
     host[0] == 'www' ? host[1] : host[0]
   end
   
